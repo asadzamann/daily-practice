@@ -5,18 +5,12 @@ import './App.css'
 
 function App() {
 
-
-function handleClick(){
-  alert('I am clicked')
+const handleClick = (num) => {
+  alert(`I am clicked ${num}`)
 }
-
   return (
     <>
-      
-     <button onClick={handleClick}>Click ME</button>
-     <button onClick={function handleClick2(){
-      alert('CLick 2 DOne')
-     }}>Click ME 2</button>
+    <button onClick={() => {handleClick(700)}}>Click Me</button>
     </>
   )
 }
