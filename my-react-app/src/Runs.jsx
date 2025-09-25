@@ -9,6 +9,8 @@ export default function Runs() {
     }
     return (
         <div className="">
+
+            
             <h3>Player: Mushfique</h3>
             <h1>Score: {run}</h1>
             <button onClick={handleSingle}> Run! </button>
