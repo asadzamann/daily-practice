@@ -7,7 +7,7 @@ export default function Friends({ friends }) {
         <div>
             <h1>Hello there</h1>
             {
-                friends2.map(friend => <Friend key={friend.id} friendprop={friend}></Friend>)
+                friends2.map(friend => <Friend friendprop={friend}></Friend>)
             }
         </div>
     )
