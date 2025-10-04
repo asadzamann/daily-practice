@@ -6,6 +6,3 @@ For instance,
 const [count, setcount] = useState(0)
 Here, default value of count is zero, because we used 0 in the useState brackets, setCount is the updated value you put. then it will show in count.
 
-##What is useEffect, and whe you should use it?
-
-
