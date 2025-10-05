@@ -12,3 +12,6 @@
 
 /* Use ctrl + shift + f to find keyword from whole codebase */
 
+.country-visited {
+    color: red;
+}
