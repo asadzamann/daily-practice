@@ -7,10 +7,17 @@ const Countries = ({ countriesPromise }) => {
     const countries = countriesData.countries;
     const [visitedCountries, setVisitedCountries] = useState([]);
 
-    const handleVisitedCountries = (country) => {
-        const newVisitedCountry = [...visitedCountries, country];
-        setVisitedCountries(newVisitedCountry);
-    }
+  const handleVisitedCountries = (country) => {
+  const alreadyVisited = visitedCountries.find(c => c.cca3 === country.cca3);
+
+  if (alreadyVisited) {
+    const remaining = visitedCountries.filter(c => c.cca3 !== country.cca3);
+    setVisitedCountries(remaining);
+  } else {
+    const newVisitedCountries = [...visitedCountries, country];
+    setVisitedCountries(newVisitedCountries);
+  }
+};
     return (
         <div>
             <h1>Total Countries: {countries.length}</h1>
