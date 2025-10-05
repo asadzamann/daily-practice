@@ -1,2 +1,14 @@
+.country {
+    border: 5px red solid;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-/* Use ctrl + shift + f */
+/* Use ctrl + shift + f to find keyword from whole codebase */
+

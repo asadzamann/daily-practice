@@ -3,7 +3,7 @@ import './Country.css'
 const Country = ({country}) => {
    console.log(country)
     return (
-        <div className='card'>
+        <div className='country'>
            <img src={country.flags.flags.png} alt={country.flags.flags.alt} />
            <h1>Country: {country.name.common}</h1>
            <h2>Capital: {country.capital.capital[0]}</h2>
