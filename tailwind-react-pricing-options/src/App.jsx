@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from '../components/Navbar/Navbar'
 import DaisyNav from '../components/Navbar/DaisyNav'
+import { Menu } from 'lucide-react'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +14,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <DaisyNav></DaisyNav>
+     
     </>
   )
 }
