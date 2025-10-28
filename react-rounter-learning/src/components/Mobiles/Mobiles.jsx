@@ -3,7 +3,7 @@ import React from 'react';
 const Mobiles = () => {
     return (
         <div>
-            <h1>Wanna Buy Mobiles?</h1>
+            <h1>Buy Mobiles?</h1>
         </div>
     );
 };
