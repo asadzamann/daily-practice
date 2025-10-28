@@ -9,6 +9,14 @@ const router = createBrowserRouter(
     {
       path: "/",
       element:<div>Hello I am React Router</div>
+    },
+    {
+      path: "about",
+      element: <div>Here's the about section</div>
+    },
+    {
+      path: "blogs",
+      element: <div>Read the blogs here</div>
     }
   ]
 )
