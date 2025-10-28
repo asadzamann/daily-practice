@@ -36,11 +36,15 @@ const link = navData.map(route => <li className='mr-9' key={route.id}><a href={r
       
         <nav className='flex justify-between mx-10'>
           <span onClick={() => {setOpen(!open)}}>
-            {open? <X></X> : <Menu></Menu>}
+            {open? <X className='md:hidden'></X> : <Menu className='md:hidden'></Menu>}
+              <ul className='md:hidden'>
+          {link}
+        </ul>
+        <h2>My Navbar</h2>
           </span>
-        
+      
           
-            <ul className='flex'>
+            <ul className='flex md:flex hidden'>
         {link}
             </ul>
             <button>Sign In</button>
