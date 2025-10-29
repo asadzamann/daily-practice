@@ -1,11 +1,13 @@
 import React, { use } from 'react';
+import { useLoaderData } from 'react-router';
+import Post from '../Post/Post';
 
-const Posts = ({postsPromise}) => {
-    const posts = use(postsPromise);
-    console.log(posts)
+const Posts = () => {
+    const posts = useLoaderData();
     return (
         <div>
-            <h1>Post Section</h1>
+            <h1>Total Posts: {posts.length}</h1>
+            {posts.map(post => <Post post={post}></Post>)}
         </div>
     );
 };
