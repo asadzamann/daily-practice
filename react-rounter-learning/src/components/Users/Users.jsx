@@ -4,7 +4,7 @@ import User from './User';
 
 const Users = () => {
     const usersData = useLoaderData();
-    console.log(usersData)
+
     return (
         <div>
             <h1>This is users</h1>
