@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SimpleForm from './SimpleForm/SimpleForm'
 import FormAction from './components/FormAction.jsx/FormAction'
-import ControlledField from '../../react-rounter-learning/ControlledFIeld/ControlledField'
+import ControlledField from './ControlledFIeld/ControlledField'
+import UncontrolledField from './UncontrolledField/uncontrolledField'
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
       <h1>Explore React Form</h1>
       {/* <SimpleForm></SimpleForm> */}
       {/* <FormAction></FormAction> */}
-      <ControlledField></ControlledField>
+      {/* <ControlledField></ControlledField> */}
+      <UncontrolledField></UncontrolledField>
 
     </>
   )
