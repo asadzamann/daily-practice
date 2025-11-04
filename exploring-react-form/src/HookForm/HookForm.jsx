@@ -10,11 +10,11 @@ const HookForm = () => {
     return (
         <div>
             <form onSubmit={formHandler}>
-<input type="text" defaultValue={name} onChange={nameOnChange} name="name" id="" />
+<input type="text" defaultValue={name} onChange={nameOnChange} name="name" id="" placeholder='Name' />
 <br />
-<input type="email" name="email" id="" />
+<input type="email" name="email" id="" placeholder='Email' />
 <br />
-<input type="password" name="password" id="" />
+<input type="password" name="password" id="" placeholder='Password'/>
 <br />
 <input type="submit" value="Submit" />
 
