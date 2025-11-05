@@ -8,6 +8,7 @@ import ControlledField from './ControlledFIeld/ControlledField'
 import UncontrolledField from './UncontrolledField/uncontrolledField'
 import HookForm from './HookForm/HookForm'
 import ProductForm from './ProductForm/ProductForm'
+import ProductManagement from './ProductForm/ProductManagement'
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
       {/* <ControlledField></ControlledField> */}
       {/* <UncontrolledField></UncontrolledField> */}
       {/* <HookForm></HookForm> */}
-      <ProductForm></ProductForm>
+     <ProductManagement></ProductManagement>
+      
 
     </>
   )
