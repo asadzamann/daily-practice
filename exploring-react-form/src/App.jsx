@@ -9,6 +9,7 @@ import UncontrolledField from './UncontrolledField/uncontrolledField'
 import HookForm from './HookForm/HookForm'
 import ProductForm from './ProductForm/ProductForm'
 import ProductManagement from './ProductForm/ProductManagement'
+import FamilyTree from './FamilyTree/FamilyTree'
 
 function App() {
 
@@ -21,9 +22,8 @@ function App() {
       {/* <ControlledField></ControlledField> */}
       {/* <UncontrolledField></UncontrolledField> */}
       {/* <HookForm></HookForm> */}
-     <ProductManagement></ProductManagement>
-      
-
+     {/* <ProductManagement></ProductManagement> */}
+     <FamilyTree></FamilyTree>
     </>
   )
 }
