@@ -9,6 +9,11 @@ const Register = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        if(!passwordPattern.test(password)){
+          setError('Password should have one number, upper case and a symbol');
+          return;
+        }
         // reset value 
         setSuccess(false);
       setError('');
