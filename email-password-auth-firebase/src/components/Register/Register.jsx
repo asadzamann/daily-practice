@@ -1,7 +1,8 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../../firebase/firebase.init';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { Link } from 'react-router';
 
 
 const Register = () => {
@@ -12,6 +13,10 @@ const Register = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const terms = e.target.terms.checked;
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     if (!passwordPattern.test(password)) {
       setError('Password should be minimum 8 characters, at least 1 letter & 1 number');
@@ -20,17 +25,39 @@ const Register = () => {
     // reset value 
     setSuccess(false);
     setError('');
+
+    if(!terms){
+      setError("Please Accept Our Terms and Conditions");
+      return;
+    }
     createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
         console.log('after creation of new user', result)
         setSuccess(true)
+        sendEmailVerification(result.user)
+        .then(
+          () => {
+            alert("Please verify your email address");
+          }
+        )
         e.target.reset();
+           // update profile
+      const profile = {
+         displayName: name,
+         photoURL: photo
+      }
+
+      updateProfile(result.user , profile)
+      .then(() => {}
+      )
+      .catch()
+
       })
       .catch(error => {
         setError(error.message)
       })
 
-
+   
   }
   return (
     <div>
@@ -44,6 +71,13 @@ const Register = () => {
             <div className="card-body">
               <form onSubmit={handleRegister}>
                 <fieldset className="fieldset">
+                  {/* Name */}
+                  <label className="label">Name</label>
+                  <input type="name" className="input" name='name' placeholder="Name" />
+                  {/* Photo URL */}
+                  <label className="label">PhotoURL</label>
+                  <input type="text" className="input" name='photo' placeholder="Photo URL" />
+                  {/* Email */}
                   <label className="label">Email</label>
                   <input type="email" className="input" name='email' placeholder="Email" />
                   <label className="label">Password</label>
@@ -51,8 +85,8 @@ const Register = () => {
                     <input type={showPassword ? 'text' : 'password'} className="input" name='password' placeholder="Password" />
                     <button onClick={() => setShowPassword(!showPassword)} className="btn btn-xs absolute top-2 right-7">{showPassword ? <FaRegEye></FaRegEye> : <FaRegEyeSlash></FaRegEyeSlash>}</button>
                     <label className="label">
-                      <input type="checkbox" defaultChecked className="checkbox" />
-                      Remember me
+                      <input type="checkbox" defaultChecked name='terms' className="checkbox" />
+                      Accept our terms and condition
                     </label>
                   </div>
 
@@ -61,6 +95,7 @@ const Register = () => {
                   {success && <p className='text-green-500'>Account created Successfully</p>}
                   {error ? <p className='text-red-700'>{error}</p> : ''}
                 </fieldset>
+                <h4>Already have an account? Please <Link to={'/login'}><p className='text-blue-600 underline'>Login</p></Link></h4>
               </form>
 
             </div>
