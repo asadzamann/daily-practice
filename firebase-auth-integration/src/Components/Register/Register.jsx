@@ -1,25 +1,41 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React from 'react';
 import { Link } from 'react-router';
-import { auth } from '../Firebase/firebase.init';
+import { AuthContext } from '../Contexts/AuthContexts/AuthContext';
+import { use } from 'react';
+
 
 const Register = () => {
+    const {createUser} = use(AuthContext);
+
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log("registration clicked", e.target.name.value, e.target.email.value, e.target.password.value)
-        const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-
-        createUserWithEmailAndPassword(auth, email, password )
-        .then(result => {
-            console.log('check result', result.user);
+        createUser(email, password)
+        .then (result => {
+            console.log('check result', result)
         })
         .catch(error => {
-            console.log('Error Found, Check please', error)
+            console.log('check error here buddy', error)
         })
-    }
+    
+}
+    // const handleRegister = (e) => {
+    //     e.preventDefault();
+    //     console.log("registration clicked", e.target.name.value, e.target.email.value, e.target.password.value)
+    //     const name = e.target.name.value;
+    //     const email = e.target.email.value;
+    //     const password = e.target.password.value;
+
+
+    //     createUserWithEmailAndPassword(auth, email, password )
+    //     .then(result => {
+    //         console.log('check result', result.user);
+    //     })
+    //     .catch(error => {
+    //         console.log('Error Found, Check please', error)
+    //     })
+    
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen">

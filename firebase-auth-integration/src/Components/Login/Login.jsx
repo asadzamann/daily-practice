@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../Contexts/AuthContexts/AuthContext';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../Firebase/firebase.init';
 
 const Login = () => {
+    
+        const {signInUser} = use(AuthContext);
+
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log('handleLogin')
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        console.log('check login' , email, password)
+
+        signInUser(email, password)
+        .then( result => {
+            console.log(result)
+        }
+        )
+        .catch(error => 
+            console.log(error)
+        )
+        
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                console.log('observing if', user)
+            }
+            else{
+                console.log('observing else', user)
+            }
+        })
     }
     return (
         <div>
@@ -20,9 +47,9 @@ const Login = () => {
                          <form onSubmit={handleLogin}>
                                <fieldset className="fieldset">
                                 <label className="label">Email</label>
-                                <input type="email" className="input" placeholder="Email" />
+                                <input type="email" className="input" placeholder="Email" name="email" />
                                 <label className="label">Password</label>
-                                <input type="password" className="input" placeholder="Password" />
+                                <input type="password" className="input" placeholder="Password" name="password"/>
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
