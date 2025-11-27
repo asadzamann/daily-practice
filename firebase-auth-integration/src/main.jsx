@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { createContext, StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -9,7 +9,12 @@ import Home from './Components/Home/Home.jsx';
 import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
 
-const router = createBrowserRouter([
+const AuthContext = createContext(null);
+const userInfo = {
+  email: 'prothom@last.com';
+}
+
+const router = createBrowserRouter([ 
   {
     path: "/",
     Component: Root,
