@@ -1,5 +1,5 @@
 .menu li a.active {
     background-color: lightblue;
     margin-left: 5px;
-    transition-duration: 2s;
+    transition-duration: 0.5s;
 }

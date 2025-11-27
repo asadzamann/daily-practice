@@ -1,5 +1,5 @@
 import React, { use, useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContexts/AuthContext';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebase.init';
@@ -7,6 +7,10 @@ import { auth } from '../Firebase/firebase.init';
 const Login = () => {
     
         const {signInUser} = use(AuthContext);
+
+        const location = useLocation();
+
+        const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -17,7 +21,10 @@ const Login = () => {
 
         signInUser(email, password)
         .then( result => {
+            
             console.log(result)
+            e.target.reset();
+            navigate(location.state || '/')
         }
         )
         .catch(error => 

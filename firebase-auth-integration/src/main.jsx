@@ -9,6 +9,11 @@ import Home from './Components/Home/Home.jsx';
 import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
 import AuthProvider from './Components/Contexts/AuthContexts/AuthProvider.jsx';
+import Orders from './Components/Orders/Orders.jsx';
+import Profile from './Components/Profile/Profile.jsx';
+import Notification from './Components/Notification/Notification.jsx';
+import PrivateRoutes from './Routes/PrivateRoutes.jsx';
+import Dashboard from './Components/Dashboard/Dashboard.jsx';
 
 
 
@@ -20,7 +25,19 @@ const router = createBrowserRouter([
     children: [
       {index: true, Component: Home},
       {path: 'login'  , Component: Login },
-      {path: 'register', Component: Register}
+      {path: 'register', Component: Register},
+      {path: 'orders', element: <PrivateRoutes>
+        <Orders></Orders>
+      </PrivateRoutes>},
+      {path: 'profile', element: <PrivateRoutes>
+        <Profile></Profile>
+      </PrivateRoutes>},
+      {path: 'notification', element: <PrivateRoutes>
+        <Notification></Notification>
+      </PrivateRoutes>},
+      {path: 'dashboard', element: <PrivateRoutes>
+        <Dashboard></Dashboard>
+      </PrivateRoutes>}
     ]
   },
 ]);
