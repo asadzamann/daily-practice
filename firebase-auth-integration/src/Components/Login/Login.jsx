@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContexts/AuthContext';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -24,14 +24,7 @@ const Login = () => {
             console.log(error)
         )
         
-        onAuthStateChanged(auth, (user) => {
-            if(user){
-                console.log('observing if', user)
-            }
-            else{
-                console.log('observing else', user)
-            }
-        })
+      
     }
     return (
         <div>
